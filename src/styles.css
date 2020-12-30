@@ -1,0 +1,29 @@
+[class*="col-"] {
+  width: 100%;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+@media only screen and (min-width: 550px) {
+  /* For mobile: */
+  [class*="col-"] {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  /* For tablet: */
+  [class*="col-"] {
+    width: 33.33%;
+  }
+}
+
+@media only screen and (min-width: 1192px) {
+  /* For desktop: */
+  [class*="col-"] {
+    width: 25%;
+  }
+}
