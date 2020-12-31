@@ -7,7 +7,6 @@ function Cart({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) {
   let TotalCart = 0;
 
   // Making Copy of Item Array and 
-  // console.log(items.CartItems);
   items.CartItems.forEach((item) => {
     ListCart.push(item);
     TotalCart += item.quantity * item.price;

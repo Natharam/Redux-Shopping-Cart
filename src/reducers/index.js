@@ -22,10 +22,10 @@ function todoProduct(state = initProduct, action) {
         ...state,
         _products: action.payload,
       };
-    case GET_NUMBER_CART:
-      return {
-        ...state,
-      };
+    // case GET_NUMBER_CART:
+    //   return {
+    //     ...state,
+    //   };
     case ADD_CART:
       if (state.totalItemInCart === 0) {
         let cart = {

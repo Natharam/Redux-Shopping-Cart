@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { fetchProducts, AddCart } from "../actions";
 import { connect } from "react-redux";
-// import '../styles.css';
 
 export class Product extends Component {
   componentDidMount() {
