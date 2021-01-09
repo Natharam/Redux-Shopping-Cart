@@ -1,29 +1,30 @@
+import { constants } from "./constants";
 
-function register(user) {
+export function register(user) {
   return (dispatch) => {
     dispatch(request(user));
 
-    userService.register(user).then(
+    user.register(user).then(
       (user) => {
         dispatch(success());
         history.push("/login");
-        dispatch(alertActions.success("Registration successful"));
+        // dispatch(alertActions.success("Registration successful"));
         console.log(user);
       },
       (error) => {
         dispatch(failure(error.toString()));
-        dispatch(alertActions.error(error.toString()));
+        // dispatch(alertActions.error(error.toString()));
       }
     );
   };
 
   function request(user) {
-    return { type: userConstants.REGISTER_REQUEST, user };
+    return { type: constants.REGISTER_REQUEST, user };
   }
   function success(user) {
-    return { type: userConstants.REGISTER_SUCCESS, user };
+    return { type: constants.REGISTER_SUCCESS, user };
   }
   function failure(error) {
-    return { type: userConstants.REGISTER_FAILURE, error };
+    return { type: constants.REGISTER_FAILURE, error };
   }
 }
