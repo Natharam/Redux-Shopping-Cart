@@ -19,6 +19,11 @@ export class Header extends Component {
                   Carts : {this.props.totalItemInCart}
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to="/signup" className="nav-link">
+                  Sign Up
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
