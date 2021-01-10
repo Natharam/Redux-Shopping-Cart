@@ -1,4 +1,3 @@
-// import config from 'config';
 import axios from "axios";
 
 export const userService = {
@@ -14,19 +13,19 @@ function login(username, password) {
     body: JSON.stringify({ username, password }),
   };
 
-  axios.post("https://reqres.in/api/articles", requestOptions).then((user) => {
+  axios.post("https://reqres.in/api/users", requestOptions).then((user) => {
     return user;
   });
 }
 
 function logout(user) {
-  axios.post("https://reqres.in/api/articles", user).then((user) => {
+  axios.post("https://reqres.in/api/users", user).then((user) => {
     return user;
   });
 }
 
 function register(user) {
-  axios.post("https://reqres.in/api/articles", user).then((user) => {
+  axios.post("https://reqres.in/api/users", user).then((user) => {
     return user;
   });
 }

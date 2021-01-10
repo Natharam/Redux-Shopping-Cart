@@ -20,7 +20,7 @@ class App extends Component {
 
   responseGoogle = (response) => {
     let propfile = response.profileObj;
-    console.log(response);
+    console.log(propfile);
     this.setState({
       email: propfile.email,
       name: propfile.name,

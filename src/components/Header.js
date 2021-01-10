@@ -5,6 +5,7 @@ import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 export const Header = ({ token, totalItemInCart, responseGoogle, logout }) => {
   let cart = token ? totalItemInCart : 0;
+  let clientId = process.env.REACT_APP_CLIENT_ID;
   return (
     <div className="row">
       <div className="col-md-12">
@@ -25,7 +26,7 @@ export const Header = ({ token, totalItemInCart, responseGoogle, logout }) => {
             <li className="nav-item position-relative">
               {token ? (
                 <GoogleLogout
-                  clientId="88837625965-fkikngjkccfjvd7kc3d9b62jfpm2jab6.apps.googleusercontent.com"
+                  clientId={clientId}
                   buttonText="Logout"
                   onLogoutSuccess={logout}
                   className="float-right"
@@ -33,7 +34,7 @@ export const Header = ({ token, totalItemInCart, responseGoogle, logout }) => {
                 />
               ) : (
                 <GoogleLogin
-                  clientId="88837625965-fkikngjkccfjvd7kc3d9b62jfpm2jab6.apps.googleusercontent.com"
+                  clientId={clientId}
                   buttonText="Login"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
