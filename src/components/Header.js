@@ -1,36 +1,54 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 
-export class Header extends Component {
-  render() {
-    return (
-      <div className="row">
-        <div className="col-md-12">
-          <nav className="navbar  navbar-dark bg-dark ">
-            <ul className="nav">
-              <li className="nav-item">
-                <Link to="/" className="nav-link active">
-                  Products
-                </Link>
-              </li>
+export const Header = ({ token, totalItemInCart, responseGoogle, logout }) => {
+  let cart = token ? totalItemInCart : 0;
+  return (
+    <div className="row">
+      <div className="col-md-12">
+        <nav className="navbar  navbar-dark bg-dark ">
+          <ul className="nav">
+            <li className="nav-item">
+              <Link to="/" className="nav-link active">
+                Products
+              </Link>
+            </li>
+            {token ? (
               <li className="nav-item">
                 <Link to="/carts" className="nav-link">
-                  Carts : {this.props.totalItemInCart}
+                  Carts: {cart}
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to="/signup" className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+            ) : null}
+            <li className="nav-item position-relative">
+              {token ? (
+                <GoogleLogout
+                  clientId="88837625965-fkikngjkccfjvd7kc3d9b62jfpm2jab6.apps.googleusercontent.com"
+                  buttonText="Logout"
+                  onLogoutSuccess={logout}
+                  className="float-right"
+                  id="customButton"
+                />
+              ) : (
+                <GoogleLogin
+                  clientId="88837625965-fkikngjkccfjvd7kc3d9b62jfpm2jab6.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={"single_host_origin"}
+                  isSignedIn={true}
+                  className="float-right"
+                />
+              )}
+            </li>
+          </ul>
+        </nav>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {

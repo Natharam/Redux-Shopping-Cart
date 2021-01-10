@@ -1,12 +1,14 @@
 import { constants } from "./constants";
+import { userService } from "../api/user";
+
 export function login(username, password, from) {
   return (dispatch) => {
     dispatch(request({ username }));
 
-    user.login(username, password).then(
+    userService.login(username, password).then(
       (user) => {
         dispatch(success(user));
-        history.push(from);
+        // history.push(from);
       },
       (error) => {
         dispatch(failure(error.toString()));

@@ -1,19 +1,17 @@
 import { constants } from "./constants";
+import { userService } from "../api/user";
 
 export function register(user) {
   return (dispatch) => {
     dispatch(request(user));
 
-    user.register(user).then(
+    userService.register(user).then(
       (user) => {
         dispatch(success());
-        history.push("/login");
-        // dispatch(alertActions.success("Registration successful"));
         console.log(user);
       },
       (error) => {
         dispatch(failure(error.toString()));
-        // dispatch(alertActions.error(error.toString()));
       }
     );
   };

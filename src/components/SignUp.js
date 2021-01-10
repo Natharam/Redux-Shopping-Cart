@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register } from "../actions/register";
+import { Link } from "react-router-dom";
 
 class SignUp extends Component {
   constructor(props) {
@@ -133,9 +134,9 @@ class SignUp extends Component {
                     />
                   </div>
                   <div id="register-link" className="text-right">
-                    <a href="#" className="text-info">
+                    <Link to="/" clLinkssName="text-info">
                       Login here
-                    </a>
+                    </Link>
                   </div>
                 </form>
               </div>

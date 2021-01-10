@@ -16,7 +16,7 @@ const initProduct = {
 };
 
 export default function todoProduct(state = initProduct, action) {
-  console.log(state.CartItems[action.payload]);
+  // console.log(state.CartItems[action.payload]);
   switch (action.type) {
     case GET_ALL_PRODUCT:
       return {
